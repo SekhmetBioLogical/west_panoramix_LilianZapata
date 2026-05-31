@@ -1,0 +1,43 @@
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #0f172a; /* Fondo azul oscuro moderno */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+.loginCard {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px; /* Corrección aquí: guion en lugar de camelCase */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.loginTitle {
+  margin: 0 0 8px 0;
+  color: #1e293b;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.loginSubtitle {
+  margin: 0 0 24px 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.loginErrorBox {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #fee2e2;
+  color: #dc2626;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: left;
+  border: 1px solid #fecaca;
+}

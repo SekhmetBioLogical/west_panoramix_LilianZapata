@@ -1,0 +1,64 @@
+/* Layout Principal */
+.dashLayout {
+  min-height: 100vh;
+  background-color: #0f172a; 
+  font-family: 'Segoe UI', sans-serif;
+  color: #f8fafc;
+}
+
+/* Navbar */
+.dashNavbar {
+  background: #1e293b;
+  border-bottom: 1px solid #334155;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Contenedor principal para centrar contenido */
+.dashMain {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* El Grid que soluciona tu problema de las cajas */
+.dashGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas iguales */
+  gap: 20px; /* Espacio entre tarjetas */
+  margin-top: 2rem;
+}
+
+/* Estilo de las Tarjetas */
+.dashCard {
+  background: #1e293b;
+  color: #f8fafc;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  transition: transform 0.2s;
+}
+
+.dashCard:hover {
+  border-color: #475569; /* Un brillo sutil al pasar el mouse */
+}
+
+/* Ajustes de texto */
+.dashValue {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 10px;
+  color: #fbbf24; /* Un toque de color (amarillo suave) para diferenciar datos */
+}
+
+.dashCodeText {
+  color: #94a3b8;
+  font-family: 'Courier New', monospace;
+  background: #0f172a;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 10px;
+}

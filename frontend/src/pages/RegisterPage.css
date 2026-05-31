@@ -1,0 +1,93 @@
+.registerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #0f172a; /* Fondo azul muy oscuro y moderno */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+.registerCard {
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.registerTitle {
+  margin: 0 0 8px 0;
+  color: #1e293b;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.registerSubtitle {
+  margin: 0 0 24px 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.registerForm {
+  text-align: left;
+}
+
+.registerInputGroup {
+  margin-bottom: 20px; /* Más espacio entre campos */
+}
+
+.registerLabel {
+  display: block;
+  font-size: 13px;
+  color: #475569;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.registerInput {
+  width: 100%;
+  padding: 12px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 15px;
+  box-sizing: border-box; /* Importante para que no se desborde */
+  transition: all 0.2s;
+}
+
+.registerInput:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.registerButton {
+  width: 100%;
+  padding: 14px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.registerButton:hover {
+  background-color: #1d4ed8;
+}
+
+.registerLoginLinkContainer {
+  margin-top: 24px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.registerLoginLink {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
