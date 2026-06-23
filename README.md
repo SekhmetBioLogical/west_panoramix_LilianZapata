@@ -1,4 +1,5 @@
-Proyecto West Panoramix - Sistema de Gestión de Eventos
+*Proyecto West Panoramix - Sistema de Gestión de Eventos*
+----------------------------------------------------------
 Este repositorio contiene la solución completa para la productora West Panoramix, permitiendo a las empresas registrar, visualizar y gestionar eventos de forma eficiente. El sistema consta de una interfaz moderna en React (Next.js) y un servidor API REST en Node.js/Express.
 
 Características del Sistema
