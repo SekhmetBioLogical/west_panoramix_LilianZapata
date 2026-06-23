@@ -1,10 +1,12 @@
+// src/services/userService.js
 import { apiClient } from '../services/apiClient';
 
 /**
- * servicio para obtener los datos del usuario autenticado.
- * consulta el endpoint del perfil.
+ * servicio para obtener los datos del usuario autenticado
+ * consulta el endpoint del perfil
  */
 export const getUserData = async () => {
   // realizo la peticion get al servidor para obtener la info
-  return await apiClient.get('/me');
+  // recuerda incluir el prefijo /api/auth para que coincida con la ruta en tu backend
+  return await apiClient.get('/api/auth/me');
 };

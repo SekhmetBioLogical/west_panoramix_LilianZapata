@@ -1,3 +1,4 @@
+'use client';
 import React, { createContext } from 'react';
 // importamos los valores para el proveedor
 import { useAuthValues } from '../hooks/useAuth';

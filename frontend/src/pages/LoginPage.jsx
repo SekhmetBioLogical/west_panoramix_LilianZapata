@@ -1,76 +1,54 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+'use client';
+import React from 'react';
+import { useRouter } from 'next/navigation';
 import { useAuth } from '../hooks/useAuth';
-import AuthForm from '../components/AuthForm'; 
-import { validateEmail } from '../utils/validation';
-import { signInWithGoogle } from '../services/firebase'; 
-import './LoginPage.css'; 
+import { loginWithGoogle } from '../services/authService';
+import AuthForm from '../components/AuthForm';
 
 const LoginPage = () => {
-  const { user, login, loading, error: authError } = useAuth();
-  const [localError, setLocalError] = useState('');
-  const navigate = useNavigate();
+  const { login, register, loading, error } = useAuth();
+  const router = useRouter();
 
-  // 1. cuando el usuario exista, lo envio a la pagina de bienvenida (el paso previo obligatorio)
-  useEffect(() => {
-    if (user) {
-      navigate('/welcome');
-    }
-  }, [user, navigate]);
-
-  // 2. logica de login tradicional que implemento
-  const handleLoginSubmit = async (email, password) => {
-    setLocalError('');
-    if (!validateEmail(email)) {
-      return setLocalError('por favor ingresa un correo con formato valido.');
-    }
-    const result = await login(email, password);
-    if (result.success) {
-      navigate('/welcome'); 
+  // funcion para manejar el proceso de autenticacion tradicional
+  const handleAuth = async (email, password, isRegistering) => {
+    const action = isRegistering ? register : login;
+    const result = await action(email, password);
+    
+    if (result.success || result.ok) {
+      router.replace('/welcome');
     }
   };
 
-  // 3. logica para manejar el login de google
-  const handleGoogleLogin = async () => {
-    try {
-      setLocalError('');
-      await signInWithGoogle();
-      // al tener el listener en useauth, el useeffect superior detectara al usuario y navegara solo
-    } catch (err) {
-      console.error("error en firebase:", err);
-      setLocalError('error al iniciar sesion con google.');
+  // funcion para manejar el ingreso con google
+  const handleGoogleClick = async () => {
+    const result = await loginWithGoogle();
+    if (result.ok) {
+      router.replace('/welcome');
     }
   };
-
-  const displayError = localError || authError;
 
   return (
-    <div className="loginContainer">
-      <div className="loginCard">
-        <h2 className="loginTitle">iniciar sesion</h2>
-        
-        {/* formulario de autenticacion */}
-        <AuthForm onSubmit={handleLoginSubmit} isLoading={loading} />
-        
-        {/* boton de google que conecta con la nube */}
-        <button onClick={handleGoogleLogin} className="googleButton">
-          ingresar con google
-        </button>
-        
-        {/* caja de error unificada */}
-        {displayError && (
-          <div className="loginErrorBox" style={{color: 'red', marginTop: '10px', textAlign: 'center'}}>
-            {displayError}
-          </div>
-        )}
-        
-        {/* enlace de registro */}
-        <div style={{ marginTop: '15px', textAlign: 'center' }}>
-          <Link to="/register">no tienes cuenta? registrate</Link>
-        </div>
-      </div>
+    <div>
+      <h1>ingreso / registro</h1>
+      
+      {/* formulario de autenticacion tradicional */}
+      <AuthForm onSubmit={handleAuth} isLoading={loading} />
+
+      {/* boton de ingreso con google */}
+      <button 
+        type="button" 
+        onClick={handleGoogleClick} 
+        className="googleButton" 
+        style={{ marginTop: '20px', width: '100%', padding: '10px' }}
+      >
+        ingresar con google
+      </button>
+      
+      {/* mensaje de error si existe */}
+      {error && <p style={{color: 'red', marginTop: '10px'}}>{error}</p>}
     </div>
   );
 };
 
+// exportacion por defecto del componente
 export default LoginPage;

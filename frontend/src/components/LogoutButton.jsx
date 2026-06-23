@@ -1,17 +1,17 @@
+'use client';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { useAuth } from '../hooks/useAuth';
 import './LogoutButton.css';
 
 const LogoutButton = () => {
   const { logout } = useAuth();
-  const navigate = useNavigate();
+  const router = useRouter();
 
+  // funcion para cerrar sesion y redirigir al login
   const handleLogout = () => {
-    // ejecuto la funcion de cierre de sesion
     logout();
-    // redirijo al usuario a la pantalla de login
-    navigate('/login');
+    router.push('/login');
   };
 
   return (

@@ -1,26 +1,28 @@
+'use client';
 import React, { useEffect } from 'react';
 import './Toast.css';
 
+// funcion para mostrar notificaciones flotantes temporales
 const Toast = ({ message, type = 'success', onClose, duration = 4000 }) => {
   useEffect(() => {
-    // si no hay mensaje, no hago nada
+    // funcion para verificar si hay mensaje
     if (!message) return;
     
-    // configuro el temporizador para cerrar el mensaje automaticamente
+    // funcion para configurar el temporizador de cierre automatico
     const timer = setTimeout(() => {
       if (onClose) onClose();
     }, duration);
 
-    // limpio el temporizador al desmontar
+    // funcion para limpiar el temporizador al desmontar
     return () => clearTimeout(timer);
   }, [message, duration, onClose]);
 
-  // si no hay mensaje, no renderizo nada
+  // funcion para evitar renderizado si no hay mensaje
   if (!message) return null;
 
   return (
     <div className={`toastBase ${type}`}>
-      {/* icono de estado */}
+      {/* icono segun el tipo de aviso */}
       <span className="toastIcon">
         {type === 'error' ? '!' : 'v'}
       </span>

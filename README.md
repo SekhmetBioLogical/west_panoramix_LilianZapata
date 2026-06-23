@@ -1,41 +1,62 @@
-*Proyecto West Panoramix - Bio-Logical Auth System*
--------------------------------------------------
-Este repositorio contiene la implementación del sistema de autenticación para la productora West Panoramix, integrando una interfaz en React con un backend en Node.js/Express.
+Proyecto West Panoramix - Sistema de Gestión de Eventos
+Este repositorio contiene la solución completa para la productora West Panoramix, permitiendo a las empresas registrar, visualizar y gestionar eventos de forma eficiente. El sistema consta de una interfaz moderna en React (Next.js) y un servidor API REST en Node.js/Express.
 
-Cómo iniciar el proyecto
-Para ejecutar la aplicación, debes levantar tanto el servidor de backend como el cliente de frontend.
+Características del Sistema
+[x] Autenticación Segura: Registro y login con encriptación (bcrypt) y gestión de tokens.
 
-1. Backend (Servidor)
-Abre una terminal (ctrl + ñ) y navega a la carpeta del backend:
-- Bash: cd backend
+[x] Gestión de Eventos (CRUD): Registro, visualización y actualización de estados.
 
-Instala las dependencias:
-- Bash: npm install
+[x] Validación Robusta: Validación de datos en tiempo real (frontend) y validación estricta en servidor (backend).
 
-Inicia el servidor:
-- Bash: node server.js
+[x] Filtrado Avanzado: Sistema de filtrado por estados (Pendiente, Iniciado, Finalizado).
 
-El servidor estará disponible en http://localhost:5000
+[x] Interfaz Dinámica: Uso de formularios, listados y controles interactivos (selects y radio buttons).
+
+[x] Persistencia: Almacenamiento de datos local en formato JSON (data/events.json y data/users.json).
+
+Requisitos Previos
+Node.js instalado en tu equipo.
+
+Gestor de paquetes npm.
+
+Instrucciones de Ejecución
+1. Servidor Backend
+Abre una terminal y navega a la carpeta del backend:
+
+    cd backend
+    npm install
+    node server.js
+
+El servidor estará activo en http://localhost:5000
 
 2. Frontend (Interfaz)
-Abre una segunda terminal (ctrl + ñ) y navega a la carpeta del frontend:
-- Bash: cd frontend
+Abre una segunda terminal y navega a la carpeta del frontend:
 
-Instala las dependencias:
-- Bash: npm install
+        cd frontend
+        npm install
+        npm run dev
 
-Inicia la aplicación:
-- Bash: npm run dev
-La aplicación estará disponible en la URL que indique Vite (http://localhost:5173 en este caso)
+La aplicación estará disponible en la URL indicada (usualmente http://localhost:3000 o http://localhost:5173).
 
-Características implementadas
------------------------------
-[x] Registro de usuarios con validación de formularios.
+Estructura del Proyecto
+/root
+├── backend/
+│   ├── src/
+│   │   ├── routes/      # Lógica de endpoints (authRoutes, eventRoutes)
+│   │   └── utils/       # Gestión de base de datos JSON
+│   └── server.js        # Punto de entrada del servidor
+├── frontend/
+│   ├── src/
+│   │   ├── app/         # Páginas y vistas (Next.js)
+│   │   ├── components/  # Componentes (Eventos.jsx, AuthForm)
+│   │   └── services/    # Cliente de API centralizado
+└── data/                # Almacenamiento local (JSON)
 
-[x] Inicio de sesión con persistencia de token (session_token).
+Tecnologías Utilizadas
+Frontend: React, Next.js, CSS.
 
-[x] Dashboard protegido con visualización de perfil dinámico.
+Backend: Node.js, Express.js.
 
-[x] Cierre de sesión y limpieza de estado.
+Seguridad: BCrypt para encriptación de contraseñas.
 
-[x] Base de datos local mediante users.json.
+Base de Datos: Simulación de persistencia mediante archivos JSON.

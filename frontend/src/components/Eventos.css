@@ -1,0 +1,24 @@
+.eventos-container {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  color: #1e293b;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.eventos-lista {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.eventos-item {
+  padding: 12px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.eventos-item:last-child {
+  border-bottom: none;
+}

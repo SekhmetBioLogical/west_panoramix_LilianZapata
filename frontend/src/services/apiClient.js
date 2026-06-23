@@ -1,10 +1,16 @@
-// apunto a mi servidor local de express
-const BASE_URL = 'http://localhost:5000'; 
+// frontend/src/services/apiClient.js
+
+const BASE_URL = 'http://localhost:5000';
 
 export const apiClient = {
   request: async (endpoint, options = {}) => {
-    const url = `${BASE_URL}${endpoint}`;
-    const token = localStorage.getItem('authToken');
+    // correccion automatica: si el endpoint no tiene /api, se lo ponemos.
+    // esto evita que tus llamadas fallen con 404.
+    const apiPath = endpoint.startsWith('/api') ? endpoint : `/api${endpoint}`;
+    const url = `${BASE_URL}${apiPath}`;
+    
+    // validacion para entornos de next.js
+    const token = typeof window !== 'undefined' ? localStorage.getItem('authToken') : null;
 
     const config = {
       ...options,
@@ -14,7 +20,7 @@ export const apiClient = {
       },
     };
 
-    // si tengo un token, lo agrego a los headers usando el estandar
+    // si existe token, lo agregamos a los headers
     if (token) {
       config.headers['Authorization'] = `Bearer ${token}`;
     }
@@ -22,7 +28,7 @@ export const apiClient = {
     try {
       const response = await fetch(url, config);
       
-      // proceso la respuesta del servidor
+      // intentamos procesar la respuesta del servidor
       const text = await response.text();
       let data;
       try {
@@ -31,28 +37,35 @@ export const apiClient = {
         data = { message: text }; 
       }
 
+      // retornamos estado y datos
       return {
         ok: response.ok,
         status: response.status,
         data: data
       };
     } catch (error) {
-      console.error('error de conexion con el backend:', error);
+      console.error('error de conexion con el servidor:', error);
       return { 
         ok: false, 
         status: 500, 
-        data: { message: 'no se pudo conectar con el servidor local.' } 
+        data: { message: 'no se pudo conectar con el servidor local. verifica que este encendido.' } 
       };
     }
   },
 
-  // funciones auxiliares para get y post
-  get: (endpoint, options = {}) => apiClient.request(endpoint, { ...options, method: 'GET' }),
+  // obtencion de datos
+  get: (endpoint, options = {}) => 
+    apiClient.request(endpoint, { ...options, method: 'GET' }),
   
+  // creacion de datos
   post: (endpoint, body, options = {}) => 
-    apiClient.request(endpoint, { 
-      ...options, 
-      method: 'POST', 
-      body: JSON.stringify(body) 
-    }),
+    apiClient.request(endpoint, { ...options, method: 'POST', body: JSON.stringify(body) }),
+  
+  // actualizacion de datos
+  put: (endpoint, body, options = {}) => 
+    apiClient.request(endpoint, { ...options, method: 'PUT', body: JSON.stringify(body) }),
+  
+  // eliminacion de datos
+  delete: (endpoint, options = {}) => 
+    apiClient.request(endpoint, { ...options, method: 'DELETE' }),
 };
