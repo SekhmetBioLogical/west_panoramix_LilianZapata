@@ -24,9 +24,9 @@ Instrucciones de Ejecución
 1. Servidor Backend
 Abre una terminal y navega a la carpeta del backend:
 
-    cd backend
-    npm install
-    node server.js
+        cd backend
+        npm install
+        node server.js
 
 El servidor estará activo en http://localhost:5000
 
