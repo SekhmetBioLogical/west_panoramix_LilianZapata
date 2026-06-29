@@ -85,7 +85,7 @@
     "fechaRegistro": "2026-06-29T07:50:37.424Z",
     "pais": "chile",
     "ciudad": "santiago",
-    "estado": "en proceso"
+    "estado": "finalizado"
   },
   {
     "id": 9,
@@ -138,5 +138,18 @@
     "pais": "Chile",
     "ciudad": "Santiago",
     "estado": "pendiente"
+  },
+  {
+    "id": 13,
+    "nombre": "luces rojas",
+    "email": "lili@lili.cl",
+    "direccion": "asdsdvf 45",
+    "productora": "west panoramix",
+    "fechaInicio": "2026-06-06",
+    "fechaTermino": "2026-06-26",
+    "fechaRegistro": "2026-06-29T10:30:17.751Z",
+    "pais": "Chile",
+    "ciudad": "Santiago",
+    "estado": "iniciado"
   }
 ]
