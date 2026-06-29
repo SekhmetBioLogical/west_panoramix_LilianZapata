@@ -1,0 +1,47 @@
+/* src/app/login/LoginPage.css */
+.loginPageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #165ec9 0%, #9bb4e2 100%);
+  padding: 20px;
+}
+
+.loginCard {
+  background-color: #dae4f4;
+  padding: 3rem;
+  border-radius: 20px; 
+  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.brandTitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.googleButton {
+  background-color: rgb(131, 122, 224);
+  color: #090101;
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 8px;
+  width: 100%;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  transition: all 0.2s;
+}
+
+.googleButton:hover {
+  background-color: #f8f9fa;
+  border-color: #ccc;
+}

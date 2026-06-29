@@ -1,0 +1,48 @@
+:root {
+  /* paleta profesional: fondo suave, texto oscuro, acento vibrante */
+  --primary: #1e293b;    /* azul medianoche (elegante) */
+  --accent: #0f856f;     /* verde esmeralda ajustado (mas oscuro para contraste) */
+  --accent-hover: #0c6e5a;
+  --bg: #e2e8f0;         /* gris azulado muy suave */
+  --text: #1e293b;       /* texto oscuro para evitar fatiga visual */
+  --card-bg: #ffffff;    /* blanco puro para tarjetas */
+  --danger: #e11d48;     /* rojo moderno */
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'segoe ui', sans-serif;
+  margin: 0;
+  line-height: 1.6;
+}
+
+button {
+  background-color: var(--accent);
+  color: #ffffff;        /* blanco puro para contraste perfecto */
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;      /* 600 se ve mejor que bold en botones */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover { 
+  background-color: var(--accent-hover); 
+}
+
+/* estilo global para inputs, para que no desentonen */
+input, select {
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: white;
+}
+
+.error-msg { 
+  color: var(--danger); 
+  font-size: 0.85rem; 
+  margin: 5px 0; 
+  font-weight: 500;
+}

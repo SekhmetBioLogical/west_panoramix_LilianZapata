@@ -1,0 +1,45 @@
+/* estilos para el contenedor de eventos */
+.dashCard {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* rejilla para organizar las tarjetas de cada evento */
+.dashGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* estilo base para cada tarjeta de evento */
+.dashCard.tecnico {
+  border-left: 5px solid var(--accent);
+}
+
+.dashValue {
+  margin: 0 0 10px 0;
+  color: var(--primary);
+}
+
+.dashCodeText {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-family: monospace;
+}
+
+/* aseguramos que el select dentro de la tarjeta se vea bien */
+.dashCard select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+}
+
+/* ajuste para el formulario de registro superior */
+.dashCard input {
+  flex: 1;
+}

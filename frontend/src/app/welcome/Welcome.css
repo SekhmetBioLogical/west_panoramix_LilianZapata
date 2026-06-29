@@ -1,0 +1,55 @@
+/* src/app/welcome/Welcome.css */
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.welcome-card {
+  background-color: rgb(121, 199, 230);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+}
+
+.welcome-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.welcome-text {
+  color: #1f4374; 
+}
+
+.setup-wrapper {
+  text-align: left; 
+  margin-bottom: 1.5rem;
+}
+
+.setup-wrapper label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.welcome-select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #878e98;
+  background-color: #c4d0dc;
+  font-size: 1rem;
+}
+
+.welcome-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+}

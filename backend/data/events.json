@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "nombre": "casa",
+    "email": "lili.zapata@duocuc.cl",
+    "estado": "iniciado",
+    "pais": "Chile",
+    "ciudad": "Santiago",
+    "fechaRegistro": "26-06-2026, 9:50:28 p. m."
+  },
+  {
+    "id": 2,
+    "nombre": "SADAC",
+    "email": "asdas@aas.cl",
+    "estado": "Finalizado",
+    "pais": "Argentina",
+    "ciudad": "Temuco",
+    "fechaRegistro": "26-06-2026, 9:50:50 p. m."
+  },
+  {
+    "id": 3,
+    "nombre": "asfa",
+    "email": "lili.zapata@duocuc.cl",
+    "estado": "Finalizado",
+    "pais": "Chile",
+    "ciudad": "Santiago",
+    "fechaRegistro": "26-06-2026, 10:07:29 p. m."
+  },
+  {
+    "id": 4,
+    "nombre": "aesfggh",
+    "email": "lili.zapata@aaa.cl",
+    "estado": "Iniciado",
+    "pais": "Chile",
+    "ciudad": "Santiago",
+    "fechaRegistro": "26-06-2026, 10:07:49 p. m."
+  },
+  {
+    "id": 5,
+    "nombre": "asfs",
+    "email": "asdfa@asda.cl",
+    "direccion": "N/A",
+    "productora": "N/A",
+    "fechaInicio": "2026-06-29T07:24:37.311Z",
+    "fechaTermino": "2026-06-29T07:24:37.311Z",
+    "fechaRegistro": "2026-06-29T07:24:37.315Z",
+    "pais": "Chile",
+    "ciudad": "Santiago",
+    "estado": "Pendiente"
+  },
+  {
+    "id": 6,
+    "nombre": "lizz",
+    "email": "asda@asa.cl",
+    "direccion": "N/A",
+    "productora": "N/A",
+    "fechaInicio": "2026-06-29T07:24:48.905Z",
+    "fechaTermino": "2026-06-29T07:24:48.905Z",
+    "fechaRegistro": "2026-06-29T07:24:48.911Z",
+    "pais": "Chile",
+    "ciudad": "Santiago",
+    "estado": "Pendiente"
+  },
+  {
+    "id": 7,
+    "nombre": "lilian",
+    "email": "lili@as.cl",
+    "direccion": "la hoguera 11",
+    "productora": "Pais",
+    "fechaInicio": "2026-12-01",
+    "fechaTermino": "2027-01-01",
+    "fechaRegistro": "2026-06-29T07:26:54.360Z",
+    "pais": "Chile",
+    "ciudad": "Santiago",
+    "estado": "Pendiente"
+  },
+  {
+    "id": 8,
+    "nombre": "prueba",
+    "email": "asdax@asd.cl",
+    "direccion": "asdf",
+    "productora": "asf",
+    "fechaInicio": "2026-06-06",
+    "fechaTermino": "2026-06-30",
+    "fechaRegistro": "2026-06-29T07:50:37.424Z",
+    "pais": "chile",
+    "ciudad": "santiago",
+    "estado": "en proceso"
+  },
+  {
+    "id": 9,
+    "nombre": "1233",
+    "email": "22",
+    "direccion": "12",
+    "productora": "12",
+    "fechaInicio": "2026-06-06",
+    "fechaTermino": "2026-06-06",
+    "fechaRegistro": "2026-06-29T08:12:47.450Z",
+    "pais": "Chile",
+    "ciudad": "Santiago",
+    "estado": "pendiente"
+  },
+  {
+    "id": 10,
+    "nombre": "1212",
+    "email": "121",
+    "direccion": "12",
+    "productora": "12",
+    "fechaInicio": "2026-06-07",
+    "fechaTermino": "2026-06-07",
+    "fechaRegistro": "2026-06-29T08:17:24.918Z",
+    "pais": "Chile",
+    "ciudad": "Santiago",
+    "estado": "pendiente"
+  },
+  {
+    "id": 11,
+    "nombre": "b",
+    "email": "n",
+    "direccion": "nm12",
+    "productora": "5",
+    "fechaInicio": "2026-06-07",
+    "fechaTermino": "2026-06-07",
+    "fechaRegistro": "2026-06-29T08:19:47.967Z",
+    "pais": "Chile",
+    "ciudad": "Santiago",
+    "estado": "pendiente"
+  },
+  {
+    "id": 12,
+    "nombre": "n",
+    "email": "lll@jk.cl",
+    "direccion": "ajsdas 45",
+    "productora": "n",
+    "fechaInicio": "2026-06-07",
+    "fechaTermino": "2026-06-14",
+    "fechaRegistro": "2026-06-29T08:22:56.398Z",
+    "pais": "Chile",
+    "ciudad": "Santiago",
+    "estado": "pendiente"
+  }
+]
