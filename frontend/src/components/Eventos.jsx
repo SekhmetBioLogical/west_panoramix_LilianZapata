@@ -1,3 +1,4 @@
+// componente eventos para la gestion y visualizacion
 'use client';
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { apiClient } from '../services/apiClient';
@@ -6,15 +7,17 @@ import './Eventos.css';
 import { validateEvent } from '../utils/validation';
 
 const Eventos = ({ rolActual }) => {
+
+  // estados para la lista de eventos, carga y errores
   const [eventos, setEventos] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState('');
   
-  // Estados para filtros
+  // estados para filtros de estado y productora
   const [filtroEstado, setFiltroEstado] = useState('todos');
   const [filtroProductora, setFiltroProductora] = useState('todas');
 
-  // Estados para formulario
+  // estados para los campos del formulario
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [direccion, setDireccion] = useState('');
@@ -24,6 +27,7 @@ const Eventos = ({ rolActual }) => {
   const [pais, setPais] = useState('Chile');
   const [ciudad, setCiudad] = useState('Santiago');
 
+  // funcion para obtener eventos desde la api
   const fetchEventos = useCallback(async () => {
     setCargando(true);
     setError('');
@@ -36,7 +40,7 @@ const Eventos = ({ rolActual }) => {
     setCargando(false);
   }, []);
 
-  // Lógica de doble filtro
+  // logica de filtrado dinamico basada en estado y productora
   const eventosFiltrados = useMemo(() => {
     return eventos.filter(e => {
       const matchEstado = filtroEstado === 'todos' || e.estado === filtroEstado;
@@ -45,16 +49,18 @@ const Eventos = ({ rolActual }) => {
     });
   }, [eventos, filtroEstado, filtroProductora]);
 
-  // Extraer productoras únicas para el filtro
+  // obtiene una lista unica de productoras para el filtro
   const listaProductoras = useMemo(() => {
     const unicas = new Set(eventos.map(e => e.productora).filter(Boolean));
     return Array.from(unicas);
   }, [eventos]);
 
+  // carga inicial de eventos
   useEffect(() => {
     fetchEventos();
   }, [rolActual, fetchEventos]);
 
+  // funcion para agregar un nuevo evento con validaciones
   const handleAgregar = async () => {
     if (rolActual !== 'gestor') return;
 
@@ -82,19 +88,21 @@ const Eventos = ({ rolActual }) => {
     }
   };
 
+  // actualiza el estado de un evento existente
   const handleActualizarEstado = async (id, nuevoEstado) => {
     if (rolActual !== 'gestor') return;
     const response = await apiClient.put(`/api/eventos/${id}`, { estado: nuevoEstado });
     if (response.ok) await fetchEventos();
   };
 
+  // renderiza el skeleton mientras carga la informacion
   if (cargando) return <EventoSkeleton />;
 
   return (
     <div className="dashCard">
       <h2>gestion de eventos</h2>
       
-      {/* Panel de Filtros */}
+      {/* panel de filtros visual */}
       <div style={{ display: 'flex', gap: '20px', marginBottom: '20px', padding: '15px', backgroundColor: '#f0f0f0', borderRadius: '8px' }}>
         <div>
           <label><strong>Estado: </strong></label>
@@ -106,6 +114,7 @@ const Eventos = ({ rolActual }) => {
             <option value="finalizado">Finalizado</option>
           </select>
         </div>
+
         <div>
           <label><strong>Productora: </strong></label>
           <select value={filtroProductora} onChange={(e) => setFiltroProductora(e.target.value)}>
@@ -117,48 +126,65 @@ const Eventos = ({ rolActual }) => {
 
       {error && <p className="error-msg" style={{ color: 'red' }}>{error}</p>}
       
-      {/* Formulario de registro */}
+      {/* formulario para gestores */}
       {rolActual === 'gestor' && (
         <div className="eventos-form" style={{ display: 'grid', gap: '10px', marginBottom: '20px' }}>
-          <label style={{ fontSize: '11px', color: '#666' }}>Nombre del evento</label>
+          <label style={{ fontSize: '11px', color: '#666' }}>nombre del evento</label>
           <input value={nombre} onChange={e => setNombre(e.target.value)} placeholder="ej: festival de verano" />
-          <label style={{ fontSize: '11px', color: '#666' }}>Email</label>
+          
+          <label style={{ fontSize: '11px', color: '#666' }}>email</label>
           <input value={email} onChange={e => setEmail(e.target.value)} placeholder="contacto@empresa.com" />
-          <label style={{ fontSize: '11px', color: '#666' }}>Dirección</label>
+          
+          <label style={{ fontSize: '11px', color: '#666' }}>direccion</label>
           <input value={direccion} onChange={e => setDireccion(e.target.value)} placeholder="av. siempre viva 123" />
-          <label style={{ fontSize: '11px', color: '#666' }}>Productora</label>
+          
+          <label style={{ fontSize: '11px', color: '#666' }}>productora</label>
           <input value={productora} onChange={e => setProductora(e.target.value)} placeholder="west panoramix" />
+          
           <div style={{ display: 'flex', gap: '15px' }}>
             <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-              <label style={{ fontSize: '12px', fontWeight: 'bold' }}>Fecha de Inicio</label>
-              <input type="date" onChange={e => setFechaInicio(e.target.value)} value={fechaInicio} />
+              <label style={{ fontSize: '12px', fontWeight: 'bold' }}>fecha de inicio</label>
+              <input type="datetime-local" onChange={e => setFechaInicio(e.target.value)} value={fechaInicio} />
             </div>
+            
             <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-              <label style={{ fontSize: '12px', fontWeight: 'bold' }}>Fecha de Término</label>
-              <input type="date" onChange={e => setFechaTermino(e.target.value)} value={fechaTermino} />
+              <label style={{ fontSize: '12px', fontWeight: 'bold' }}>fecha de termino</label>
+              <input type="datetime-local" onChange={e => setFechaTermino(e.target.value)} value={fechaTermino} />
             </div>
           </div>
+          
           <button onClick={handleAgregar} style={{ backgroundColor: '#10b981', color: 'white', padding: '10px', cursor: 'pointer' }}>
-            Registrar Evento
+            registrar evento
           </button>
         </div>
       )}
 
-      {/* Lista de eventos */}
+      {/* grilla de eventos filtrados */}
       <div className="eventos-grid">
         {eventosFiltrados.map(e => (
           <div key={e.id} className="evento-item" style={{ border: '1px solid #ccc', padding: '15px', marginBottom: '10px' }}>
             <h3>{e.nombre}</h3>
-            <p><strong>Registrado el:</strong> {e.fechaRegistro ? new Date(e.fechaRegistro).toLocaleString('es-CL', {
+            
+            <p><strong>registrado el:</strong> {e.fechaRegistro ? new Date(e.fechaRegistro).toLocaleString('es-CL', {
                 day: '2-digit', month: '2-digit', year: 'numeric',
                 hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
-            }) : 'No disponible'}</p>
-            <p><strong>Fecha Inicio:</strong> {e.fechaInicio ? new Date(e.fechaInicio).toLocaleDateString('es-CL') : 'N/A'}</p>
-            <p><strong>Fecha Término:</strong> {e.fechaTermino ? new Date(e.fechaTermino).toLocaleDateString('es-CL') : 'N/A'}</p>
-            <p><strong>Productora:</strong> {e.productora}</p>
+            }) : 'no disponible'}</p>
+            
+            <p><strong>fecha inicio:</strong> {e.fechaInicio ? new Date(e.fechaInicio).toLocaleString('es-CL', {
+                day: '2-digit', month: '2-digit', year: 'numeric',
+                hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
+            }) : 'n/a'}</p>
+            
+            <p><strong>fecha termino:</strong> {e.fechaTermino ? new Date(e.fechaTermino).toLocaleString('es-CL', {
+                day: '2-digit', month: '2-digit', year: 'numeric',
+                hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
+            }) : 'n/a'}</p>
+            
+            <p><strong>productora:</strong> {e.productora}</p>
+            
             {rolActual === 'gestor' ? (
               <div style={{ marginTop: '10px' }}>
-                <label><strong>Estado: </strong></label>
+                <label><strong>estado: </strong></label>
                 <select value={e.estado} onChange={(ev) => handleActualizarEstado(e.id, ev.target.value)}>
                   <option value="pendiente">pendiente</option>
                   <option value="iniciado">iniciado</option>
@@ -167,7 +193,7 @@ const Eventos = ({ rolActual }) => {
                 </select>
               </div>
             ) : (
-              <p><strong>Estado:</strong> {e.estado}</p>
+              <p><strong>estado:</strong> {e.estado}</p>
             )}
           </div>
         ))}
