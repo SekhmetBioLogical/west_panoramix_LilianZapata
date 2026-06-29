@@ -1,7 +1,9 @@
-Proyecto West Panoramix - Sistema de Gestión de Eventos
+*Proyecto West Panoramix - Sistema de Gestión de Eventos*
+---------------------------------------------------------
 Este proyecto es una solución integral para la productora internacional West Panoramix, diseñada para la gestión logística y técnica de eventos. Implementa técnicas avanzadas de optimización y renderizado para cumplir con estándares de alto desempeño.
 
 🚀 Características y Optimizaciones (S6)
+-----------------------------------------
 Renderizado SSR & Modularización: Implementación de next/dynamic para la carga diferida (lazy loading) de componentes pesados, optimizando el rendimiento de la aplicación.
 
 Retroalimentación Visual (Skeletons): Carga de datos con componentes de tipo Skeleton y espera simulada de 3 segundos para mejorar la experiencia de usuario durante la carga.
@@ -25,20 +27,20 @@ Optimización: next/dynamic para modularización y lazy loading.
 1. Servidor Backend
 Navega a la carpeta /backend:
 
-Bash
-cd backend
-npm install
-node server.js
-El servidor estará activo en http://localhost:5000.
+        Bash
+        cd backend
+        npm install
+        node server.js
+        El servidor estará activo en http://localhost:5000.
 
 2. Frontend
 Navega a la carpeta /frontend:
 
-Bash
-cd frontend
-npm install
-npm run dev
-La aplicación estará disponible en http://localhost:3000.
+        Bash
+        cd frontend
+        npm install
+        npm run dev
+        La aplicación estará disponible en http://localhost:3000.
 
 📂 Estructura del Proyecto
 Plaintext
